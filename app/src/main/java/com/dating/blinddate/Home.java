@@ -55,7 +55,15 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new Find());
+
+        // Intent se fragment tag retrieve karein
+
+        String fragmentTag = getIntent().getStringExtra("FRAGMENT_TO_LOAD");
+        if (fragmentTag != null) {
+            System.out.println(fragmentTag);
+            if (fragmentTag.equals("FriendsList")) { sideReplaceFragment(new ContactUs()); }
+            else {replaceFragment(new Find());}
+        }
 
         //-------------------------------Setting Top and Bottom Bar Of System---------------------
         getWindow().setNavigationBarColor(getResources().getColor(R.color.bottomAppBar));

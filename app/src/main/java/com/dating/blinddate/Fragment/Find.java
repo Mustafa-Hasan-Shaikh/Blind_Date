@@ -103,7 +103,15 @@ public class Find extends Fragment {
                    friendDetails("Like");
                    savingRequest(friendDetails("Like"));
                    sendingRequest(userDetails("Like"));
-                   sendingNotification(userDetails("Like"),String.valueOf(user.getProfilepic()),user.getUserName(),"Like",user.getUserName() + "like your profile");
+
+                    Map<String, String> dataPayload = new HashMap<>();
+                    dataPayload.put("type", "Notification");
+                    dataPayload.put("senderID",user.getUserId());
+                    dataPayload.put("senderPic", String.valueOf(user.getProfilepic()));
+                    dataPayload.put("senderName",user.getUserName());
+                    dataPayload.put("message", "  "+ user.getUserName() + " like your profile");
+
+                   sendingNotification(userDetails("Like"),dataPayload);
                  }
                 if (direction == Direction.Top){
                     savingRequest(friendDetails("Super Like"));
@@ -215,7 +223,7 @@ public class Find extends Fragment {
                 .child(auth.getUid())
                 .setValue(userDetails);
     }
-    void sendingNotification(Map userDetails,String picURL,String sender,String title,String message){
+    void sendingNotification(Map userDetails,Map dataPayload){
         String time = String.valueOf(System.currentTimeMillis());
         String path = time + auth.getUid();
                 System.out.println(path);
@@ -226,18 +234,11 @@ public class Find extends Fragment {
                 .child(path)
                 .setValue(userDetails);*/
 
-        sendNotification(list.get(stackLayoutManager.getTopPosition()-1).getDevice_Token(),
-                picURL,sender,title,message
-        );
+        sendNotification(list.get(stackLayoutManager.getTopPosition()-1).getDevice_Token(), dataPayload);
     }
 
-    public void sendNotification(String device_Token,String icon,String title,String body,String tag) {
+    public void sendNotification(String device_Token,Map dataPayload) {
         // Create a data object for custom payload
-        Map<String, String> dataPayload = new HashMap<>();
-        dataPayload.put("userPic", icon);
-        dataPayload.put("userName", title);
-        dataPayload.put("message", body);
-        dataPayload.put("extra", tag);
 
         RetrofitInterface retrofitInterface = RetrofitClient.getClient("https://fcm.googleapis.com/").create(RetrofitInterface.class);
         NotificationRequest notificationRequest = new NotificationRequest(device_Token, dataPayload);
