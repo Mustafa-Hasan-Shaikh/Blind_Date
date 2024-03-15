@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+
+    <color name="windowbarD">#5C4C4C4C</color>
+     <color name="ActivityBgD">#FEFEFE</color>
+    <color name="fragmentBgD">#E91E63</color>
+    <color name="naveViewD">#FEFEFE</color>
+    <color name="bottomAppBar">#cdb6c0</color>
+    <color name="textHeadingD">#FF000000</color>
+    <color name="textDescriptionD">#8C8C8C</color>
+    <color name="buttonD">#FF32CACA</color>
+
+    <color name="test">#4CAF50</color>
+    <!--Night Mode Code -->
+    <color name="windowbarN">#5C4C4C4C</color>
+    <color name="ActivityBgN">#FEFEFE</color>
+    <color name="fragmentBgN">#AEADAD</color>
+    <color name="naveViewN">#FEFEFE</color>
+    <color name="textHeadingN">#FF000000</color>
+    <color name="textDescriptionN">#8C8C8C</color>
+    <color name="buttonN">#FF32CACA</color>
+</resources>

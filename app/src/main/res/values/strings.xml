@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">Blind Date</string>
+    <string name="let_sign_In">Let\'s Sign In</string>
+    <string name="welcome_back">Welcome back, you’ve been missed!</string>
+    <string name="location"></string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descriptionForAbout">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</string>
+    <string name="blind_date_terms_conditions">
+    <![CDATA[
+        <b>Introduction</b>\n
+        Welcome to Blind Date, a dating application owned and operated by Mustafa Hasan. By accessing or using Blind Date, you agree to comply with and be bound by the following terms and conditions. Please read these terms carefully before accessing or using Blind Date. If you do not agree with any part of these terms, you may not use Blind Date.\n\n
+
+        <b>Use of Blind Date</b>\n
+        - You must be at least 18 years old to use Blind Date.\n
+        - You are responsible for maintaining the confidentiality of your account and password.\n
+        - You are solely responsible for all activities that occur under your account.\n\n
+
+        <b>User Content</b>\n
+        - Users are solely responsible for the content they upload, post, or display on Blind Date.\n
+        - Users must not post or share content that is unlawful, defamatory, obscene, offensive, or otherwise objectionable.\n\n
+
+        <b>Privacy</b>\n
+        - We respect your privacy. Please review our Privacy Policy to understand how we collect, use, and disclose information.\n\n
+
+        <b>Safety</b>\n
+        - While we strive to create a safe environment, we cannot guarantee the safety of users. Users are encouraged to use caution when interacting with other users on Blind Date.\n\n
+
+        <b>Prohibited Conduct</b>\n
+        - Users must not engage in any conduct that violates these terms or is harmful to others.\n
+        - Prohibited conduct includes but is not limited to harassment, stalking, or impersonating others.\n\n
+
+        <b>Intellectual Property</b>\n
+        - All content and materials on Blind Date, including but not limited to text, graphics, logos, and software, are the property of Mustafa Hasan or its licensors.\n\n
+
+        <b>Termination</b>\n
+        - Mustafa Hasan reserves the right to suspend or terminate your access to Blind Date at any time for any reason without notice.\n\n
+
+        <b>Modifications</b>\n
+        - Mustafa Hasan reserves the right to modify or update these terms and conditions at any time without prior notice.\n\n
+
+        <b>Governing Law</b>\n
+        - These terms and conditions shall be governed by and construed in accordance with the laws of [Jurisdiction].\n\n
+
+        <b>Contact Us</b>\n
+        - If you have any questions about these terms and conditions, please contact us at [contact information].\n\n
+
+        By using Blind Date, you agree to these terms and conditions. If you do not agree to these terms and conditions, you may not use Blind Date.
+    ]]>
+</string>
+
+    <string name="privacy_policy">
+    <![CDATA[
+        <b>Privacy Policy</b>\n\n
+
+        At Blind Date, accessible from [app URL], one of our main priorities is the privacy of our users. This Privacy Policy document contains types of information that is collected and recorded by Blind Date and how we use it.\n\n
+
+        If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.\n\n
+
+        <b>Information Collection and Use</b>\n
+        We collect several different types of information for various purposes to provide and improve our Service to you.\n\n
+
+        <b>Types of Data Collected</b>\n
+        <b>Personal Data</b>\n
+        While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to:\n
+        - Email address\n
+        - First name and last name\n
+        - Phone number\n
+        - Address, State, Province, ZIP/Postal code, City\n
+        - Cookies and Usage Data\n\n
+
+        <b>Usage Data</b>\n
+        We may collect information that your browser sends whenever you visit our Service or when you access the Service by or through a mobile device ("Usage Data").\n\n
+
+        <b>Use of Data</b>\n
+        We use the collected data for various purposes:\n
+        - To provide and maintain our Service\n
+        - To notify you about changes to our Service\n
+        - To allow you to participate in interactive features of our Service when you choose to do so\n
+        - To provide customer support\n
+        - To gather analysis or valuable information so that we can improve our Service\n
+        - To monitor the usage of our Service\n
+        - To detect, prevent and address technical issues\n\n
+
+        <b>Transfer of Data</b>\n
+        Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.\n\n
+
+        <b>Disclosure of Data</b>\n
+        We may disclose your Personal Data in the good faith belief that such action is necessary to:\n
+        - To comply with a legal obligation\n
+        - To protect and defend the rights or property of Blind Date\n
+        - To prevent or investigate possible wrongdoing in connection with the Service\n
+        - To protect the personal safety of users of the Service or the public\n
+        - To protect against legal liability\n\n
+
+        <b>Security of Data</b>\n
+        The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is secure system.
+        ]]>
+    </string>
+
+</resources>

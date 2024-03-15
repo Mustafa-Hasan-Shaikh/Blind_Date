@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/home"
+            android:title="HomePage"
+            android:visible="false"
+            />
+
+        <item
+            android:id="@+id/myProfile"
+            android:title="My Profile"
+          />
+        <item
+            android:id="@+id/accountSettings"
+            android:title="Account Settings"/>
+        <item
+            android:id="@+id/contactUs"
+            android:title="Contact Us"/>
+        <item
+            android:id="@+id/privacyPolicy"
+            android:title="Privacy Policy"/>
+        <item
+            android:id="@+id/aboutUs"
+            android:title="About us"/>
+        <item
+            android:id="@+id/TermsConditions"
+            android:title="Terms &amp; Conditions"/>
+        <item
+            android:id="@+id/shareApp"
+            android:title="Share App"
+           />
+        <item
+            android:id="@+id/logOut"
+            android:title="Log Out"
+           />
+    </group>
+
+</menu>

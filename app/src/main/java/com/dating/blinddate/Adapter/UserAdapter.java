@@ -1,0 +1,102 @@
+package com.dating.blinddate.Adapter;
+
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.dating.blinddate.ChatBox;
+import com.dating.blinddate.Model.User;
+import com.dating.blinddate.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
+    public UserAdapter(ArrayList<User> list, Context context) {
+        this.list = list;
+        this.context = context;
+    }
+
+    ArrayList<User> list;
+    Context context;
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.chat_layout_sample,parent,false);
+
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        User user = list.get(position);
+
+        Picasso.get().load(user.getProfilepic()).placeholder(R.drawable.logo).into(holder.image);
+        holder.Name.setText(user.getUserName());
+
+        FirebaseDatabase.getInstance().getReference().child("Chats")
+                        .child(FirebaseAuth.getInstance().getUid() + user.getUserId())
+                                .orderByChild("timestamp")
+                                        .limitToLast(1)
+                                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        if(snapshot.hasChildren()){
+                                                            for(DataSnapshot snapshot1 : snapshot.getChildren()){
+                                                                holder.Message.setText(snapshot1.child("messageText")
+                                                                        .getValue().toString());
+                                                            }
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ChatBox.class);
+                intent.putExtra("userId",user.getUserId());
+                intent.putExtra("profilePic",user.getProfilepic());
+                intent.putExtra("userName",user.getUserName());
+
+                context.startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView image;
+        TextView Name , Message;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            image = itemView.findViewById(R.id.people_dp);
+            Name = itemView.findViewById(R.id.people_name);
+            Message = itemView.findViewById(R.id.notifi_title);
+
+        }
+    }
+}

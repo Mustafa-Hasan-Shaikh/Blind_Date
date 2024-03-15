@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Chat"
+        android:id="@+id/chat"
+        android:icon="@drawable/chat"/>
+    <item android:title="Calls"
+        android:id="@+id/calls"
+        android:icon="@drawable/chat"/>
+    <item android:title=""
+        android:id="@+id/black"
+        />
+    <item
+        android:id="@+id/stories"
+        android:icon="@drawable/vibes"
+        android:title="Stories" />
+    <item android:title="Notification"
+        android:id="@+id/notification"
+        android:icon="@drawable/vibes"/>
+
+
+
+</menu>
