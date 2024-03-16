@@ -23,6 +23,7 @@ import com.dating.blinddate.Fragment.Notification;
 import com.dating.blinddate.Fragment.SideFragment.AboutUs;
 import com.dating.blinddate.Fragment.SideFragment.AccountSetting;
 import com.dating.blinddate.Fragment.SideFragment.ContactUs;
+import com.dating.blinddate.Fragment.SideFragment.FriendProfile.FriendProfile;
 import com.dating.blinddate.Fragment.SideFragment.MyProfile;
 import com.dating.blinddate.Fragment.SideFragment.Privacy_Policy;
 import com.dating.blinddate.Fragment.SideFragment.Terms_Conditions;
@@ -43,10 +44,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Home extends AppCompatActivity {
 
     ActivityHomeBinding binding;
-
+    private static boolean isInitialized = false;
     FirebaseAuth auth;
     User userDetails;
     String location = "Find";
+    public static String FragName;
+
+
     private boolean backPressedOnce = false , Home= true;
 
 
@@ -54,16 +58,8 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
+
         setContentView(binding.getRoot());
-
-        // Intent se fragment tag retrieve karein
-
-        String fragmentTag = getIntent().getStringExtra("FRAGMENT_TO_LOAD");
-        if (fragmentTag != null) {
-            System.out.println(fragmentTag);
-            if (fragmentTag.equals("FriendsList")) { sideReplaceFragment(new ContactUs()); }
-            else {replaceFragment(new Find());}
-        }
 
         //-------------------------------Setting Top and Bottom Bar Of System---------------------
         getWindow().setNavigationBarColor(getResources().getColor(R.color.bottomAppBar));
@@ -95,33 +91,33 @@ public class Home extends AppCompatActivity {
                 if(item.getItemId()==R.id.chat) {
                     location = "Chat";
                     binding.find.setImageResource(R.drawable.plus);
-                    replaceFragment(new Chats());
+                    replaceFragment(new Chats(),"Chats");
                 } else if (item.getItemId()==R.id.stories) {
                     location = "Stories";
                     binding.find.setImageResource(R.drawable.post_button);
-                    replaceFragment(new Stroies());
+                    replaceFragment(new Stroies(),"Stroies");
                 } else if (item.getItemId()==R.id.calls) {
                     location = "Calls";
                     binding.find.setImageResource(R.drawable.call);
-                    replaceFragment(new Calls());
+                    replaceFragment(new Calls(),"Calls");
                 } else if (item.getItemId()==R.id.notification) {
                     location = "Notification";
                     binding.find.setImageResource(R.drawable.notification);
-                    replaceFragment(new Notification());
+                    replaceFragment(new Notification(),"Notification");
                 } else {
                     location = "Find";
-                    replaceFragment(new Find());
+                    replaceFragment(new Find(),"Find");
                 }
             return true;
         });
         binding.find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (location.equals("Chat")){ replaceFragment(new Chats());}
+                if (location.equals("Chat")){ replaceFragment(new Chats(),"Chats");}
                 else if (location.equals("Stories")) { sideReplaceFragment(new UploadPost());}
-                else if (location.equals("Calls")){replaceFragment(new Calls());}
-                else if (location.equals("Notification")){replaceFragment(new Notification());}
-                else if (location.equals("Find")){replaceFragment(new Find());}
+                else if (location.equals("Calls")){replaceFragment(new Calls(),"Calls");}
+                else if (location.equals("Notification")){replaceFragment(new Notification(),"Notification");}
+                else if (location.equals("Find")){replaceFragment(new Find(),"Find");}
             }
         });
 
@@ -165,19 +161,38 @@ public class Home extends AppCompatActivity {
                 return true;
             }
         });
-
+        isInitialized = true;
     }
-    
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        replaceFragment(new Find(),"Find");
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        String fragmentTag = intent.getStringExtra("FRAGMENT_TO_LOAD");
+         if (fragmentTag != null) {
+
+            if (fragmentTag.equals("FriendsList")) { sideReplaceFragment(new FriendProfile(getIntent().getStringExtra("senderID"))); }
+        }
+    }
+
+
     //-------------------------------Method  For Replacing Fragment---------------------
-    public void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment,String name) {
         Home = false;
         binding.find.setVisibility(View.VISIBLE);
         binding.bottomAppBar.setVisibility(View.VISIBLE);
         binding.drawerLayout.closeDrawer(GravityCompat.START);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragHolder, fragment);
+        fragmentTransaction.replace(R.id.fragHolder, fragment,name);
         fragmentTransaction.commit();
+
+        FragName = name;
     }
     public void sideReplaceFragment(Fragment fragment) {
         Home = false;
@@ -196,7 +211,7 @@ public class Home extends AppCompatActivity {
     public void onBackPressed() {
         if(Home == false){
             location = "Find";
-        replaceFragment(new Find());
+        replaceFragment(new Find(),"Find");
             this.Home = true;
         }else {
             int count = getSupportFragmentManager().getBackStackEntryCount();
@@ -205,7 +220,7 @@ public class Home extends AppCompatActivity {
             } else {
                 if (backPressedOnce) {
                     super.onBackPressed();
-                    replaceFragment(new Find());
+                    replaceFragment(new Find(),"Find");
                     return;
                 }
                 backPressedOnce = true;
