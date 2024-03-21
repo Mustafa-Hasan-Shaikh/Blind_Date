@@ -14,7 +14,6 @@ import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dating.blinddate.Fragment.Calls;
 import com.dating.blinddate.Fragment.Chats;
@@ -28,7 +27,7 @@ import com.dating.blinddate.Fragment.SideFragment.MyProfile;
 import com.dating.blinddate.Fragment.SideFragment.Privacy_Policy;
 import com.dating.blinddate.Fragment.SideFragment.Terms_Conditions;
 import com.dating.blinddate.Fragment.Stroies;
-import com.dating.blinddate.Fragment.UploadPost;
+import com.dating.blinddate.Fragment.Other.UploadPost;
 import com.dating.blinddate.Model.User;
 import com.dating.blinddate.cache.SharedPreferencesHelper;
 import com.dating.blinddate.databinding.ActivityHomeBinding;
@@ -49,6 +48,7 @@ public class Home extends AppCompatActivity {
     User userDetails;
     String location = "Find";
     public static String FragName;
+    FragmentManager fragmentManager = getSupportFragmentManager();
 
 
     private boolean backPressedOnce = false , Home= true;
@@ -114,7 +114,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (location.equals("Chat")){ replaceFragment(new Chats(),"Chats");}
-                else if (location.equals("Stories")) { sideReplaceFragment(new UploadPost());}
+                else if (location.equals("Stories")) { sideReplaceFragment(new UploadPost(Home.this,Home,binding.find,binding.bottomAppBar,binding.drawerLayout,fragmentManager));}
                 else if (location.equals("Calls")){replaceFragment(new Calls(),"Calls");}
                 else if (location.equals("Notification")){replaceFragment(new Notification(),"Notification");}
                 else if (location.equals("Find")){replaceFragment(new Find(),"Find");}
@@ -187,7 +187,6 @@ public class Home extends AppCompatActivity {
         binding.find.setVisibility(View.VISIBLE);
         binding.bottomAppBar.setVisibility(View.VISIBLE);
         binding.drawerLayout.closeDrawer(GravityCompat.START);
-        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragHolder, fragment,name);
         fragmentTransaction.commit();
@@ -233,7 +232,7 @@ public class Home extends AppCompatActivity {
                         backPressedOnce = false;
                     }
                 }, 2000);
-                    }
+                }
             }
         }
     //SnackBar method for backpressed

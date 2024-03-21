@@ -58,11 +58,13 @@ dependencies {
     // For converting Object data jo Json (String Formate)
     implementation("com.google.code.gson:gson:2.8.8")
 
-    /*For Retrofit Library*/
+    /* For Retrofit Library */
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.0")
     implementation("com.google.firebase:firebase-messaging:23.4.1")
+    /* For Flow Layout */
+    implementation ("com.nex3z:flow-layout:1.3.3")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -96,5 +96,11 @@
         The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is secure system.
         ]]>
     </string>
+    <string-array name="dropdown_items">
+        <item>Public</item>
+        <item>Close Friends</item>
+        <item>Private</item>
+        <!-- Add more items as needed -->
+    </string-array>
 
 </resources>

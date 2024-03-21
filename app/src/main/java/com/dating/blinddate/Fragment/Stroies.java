@@ -35,8 +35,6 @@ public class Stroies extends Fragment {
             floatButton = getActivity().findViewById(R.id.find);
 
             Story.add(new StoryModel("","Rashid","10:45 PM","A","23", "23","5","25","63",""));
-            Story.add(new StoryModel("","Dilshad","10:45 PM","A","23", "23","5","25","63",""));
-            Story.add(new StoryModel("","Jamshad","10:45 PM","A","23", "23","5","25","63",""));
 
             StoryAdapter adapter = new StoryAdapter(Story,getContext());
         binding.storyRecycle.setAdapter(adapter);

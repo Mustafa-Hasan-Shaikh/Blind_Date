@@ -97,8 +97,8 @@ public class MyProfile extends Fragment {
             public void onClick(View v) {
                 if(validation()!=null){
                    reference.updateChildren(validation());}
-               // User details = new User(picUrl,us,binding.profileUserNameEdit.getText().toString(),binding.profileUserNumberEidt.getText().toString(),binding.profileUserEmailEdit.getText().toString());
-              //  reference.setValue(details);
+                //User details = new User(picUrl,us,binding.profileUserNameEdit.getText().toString(),binding.profileUserNumberEidt.getText().toString(),binding.profileUserEmailEdit.getText().toString());
+                //reference.setValue(details);
             }
         });
         return binding.getRoot();
